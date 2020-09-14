@@ -6,6 +6,8 @@ import java.util.concurrent.Semaphore;
 
 /** 
  * 信号量代码实现
+ * Semaphore原理：Semaphore内部有一个继承了AQS的同步器Sync，重写了tryAcquireShared方法。在这个方法里，会去尝试获取资源。
+ * 如果获取失败（想要的资源数量大于目前已有的资源数量），就会返回一个负数（代表尝试获取资源失败）。然后当前线程就会进入AQS的等待队列。
  * @author wangcongbirley
  * @date 2020-09-04
  */
